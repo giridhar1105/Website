@@ -1,4 +1,24 @@
+"use client"
+
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
 export default function Homee() {
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/api/items'); // Update with your backend URL
+                setItems(response.data.items);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
     return (
         <div
             className="bg-cover bg-center h-screen w-screen flex flex-col justify-center items-start relative"
@@ -35,22 +55,12 @@ export default function Homee() {
             <div className="bg-black text-white px-5 md:px-12 py-10 absolute" style={{ bottom: '-150px', left: 0, right: 0, opacity: 0.8 }}>
                 <p className="font-light text-lg text-center">Know About Something</p>
                 <div className="flex flex-col md:flex-row items-stretch justify-center pt-8 gap-8 md:gap-16">
-                    <div className="flex-1 flex-col h-[200px]">
-                        <div className="text-[18px] md:text-[20px] underline decoration-dashed underline-offset-4">Something 1</div>
-                        <div className="pt-2 font-mono text-[14px] md:text-[15px]">Talking about something 1</div>
-                    </div>
-                    <div className="flex-1 flex-col h-[200px]">
-                        <div className="text-[18px] md:text-[20px] underline decoration-dashed underline-offset-4">Something 2</div>
-                        <div className="pt-2 font-mono text-[14px] md:text-[15px]">Talking about something 2</div>
-                    </div>
-                    <div className="flex-1 flex-col h-[200px]">
-                        <div className="text-[18px] md:text-[20px] underline decoration-dashed underline-offset-4">Something 3</div>
-                        <div className="pt-2 font-mono text-[14px] md:text-[15px]">Talking about something 3</div>
-                    </div>
-                    <div className="flex-1 flex-col h-[200px]">
-                        <div className="text-[18px] md:text-[20px] underline decoration-dashed underline-offset-4">Something 4</div>
-                        <div className="pt-2 font-mono text-[14px] md:text-[15px]">Talking about something 4</div>
-                    </div>
+                    {items.map(item => (
+                        <div key={item.id} className="flex-1 flex-col h-[200px]">
+                            <div className="text-[18px] md:text-[20px] underline decoration-dashed underline-offset-4">{item.title}</div>
+                            <div className="pt-2 font-mono text-[14px] md:text-[15px]">{item.description}</div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
