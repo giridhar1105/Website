@@ -1,10 +1,10 @@
 import Image from "next/image";
-import Homee from "./Homee/page";
+import Pg1 from "./Pg1/page";
 
 export default function Home() {
   return (
     <div>
-      <Homee />
+      <Pg1 />
     </div>
   )
 }
