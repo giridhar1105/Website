@@ -193,17 +193,17 @@ Submit
 </button>
 {status === 'success' && (
 <div className="mt-4 text-green-500 flex items-center">
-<FaCheckCircle className="mr-2" /> Stored successfully!
+<FaCheckCircle className="mr-2" /> Stored successfully !!!
 </div>
 )}
 {status === 'error' && (
 <div className="mt-4 text-red-500 flex items-center">
-<FaTimesCircle className="mr-2" /> Failed to store data!
+<FaTimesCircle className="mr-2" /> Failed to store data !!!
 </div>
 )}
 {status === 'serverError' && (
 <div className="mt-4 text-red-500 flex items-center">
-<FaTimesCircle className="mr-2" /> Server is not running!
+<FaTimesCircle className="mr-2" /> Server is not running !!!
 </div>
 )}
 </div>
