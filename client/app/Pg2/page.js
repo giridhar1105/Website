@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Pg2() {
     return (
-        <div style={{ paddingTop: '400px' }} className="flex flex-col items-center justify-center h-screen bg-black text-white">
+        <div style={{ paddingTop: '500px' }} className="flex flex-col items-center justify-center h-screen bg-black text-white">
             <h1 className="text-white text-4xl mb-4">Build Your Own Website</h1>
             <div className="flex space-x-8 w-full max-w-5xl">
                 <div className="flex flex-col space-y-4 w-full">
@@ -80,6 +80,12 @@ export default function Pg2() {
                     />
                 </div>
             </div>
+            <button
+                type="submit"
+                className="mt-8 p-4 bg-white text-black text-xl rounded hover:bg-blue transition duration-300"
+            >
+                Submit
+            </button>
         </div>
     );
 }

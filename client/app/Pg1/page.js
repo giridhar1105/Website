@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export default function Pg1() {
-    const [items, setItems] = useState([]);
     const [websiteName, setWebsiteName] = useState('');
     const [description1, setDescription1] = useState('');
     const [description2, setDescription2] = useState('');
@@ -29,6 +28,11 @@ export default function Pg1() {
 
         fetchData();
     }, []);
+
+    const knowAboutItem1 = knowAboutItems[0] || {};
+    const knowAboutItem2 = knowAboutItems[1] || {};
+    const knowAboutItem3 = knowAboutItems[2] || {};
+    const knowAboutItem4 = knowAboutItems[3] || {}; // Added fourth item
 
     return (
         <>
@@ -67,12 +71,22 @@ export default function Pg1() {
             <div className="bg-black text-white px-5 md:px-12 py-10 absolute" style={{ bottom: '-330px', left: 0, right: 0, opacity: 0.8 }}>
                 <p className="font-light text-lg text-center">{knowAboutTitle}</p>
                 <div className="flex flex-col md:flex-row items-stretch justify-center pt-8 gap-8 md:gap-16">
-                    {knowAboutItems.map(item => (
-                        <div key={item.id} className="flex-1 flex-col h-[200px]">
-                            <div className="text-[18px] md:text-[20px] underline decoration-dashed underline-offset-4">{item.title}</div>
-                            <div className="pt-2 font-mono text-[14px] md:text-[15px]">{item.description}</div>
-                        </div>
-                    ))}
+                    <div key={knowAboutItem1.id} className="flex-1 flex-col h-[200px]">
+                        <div className="text-[18px] md:text-[20px] underline decoration-dashed underline-offset-4">{knowAboutItem1.title}</div>
+                        <div className="pt-2 font-mono text-[14px] md:text-[15px]">{knowAboutItem1.description}</div>
+                    </div>
+                    <div key={knowAboutItem2.id} className="flex-1 flex-col h-[200px]">
+                        <div className="text-[18px] md:text-[20px] underline decoration-dashed underline-offset-4">{knowAboutItem2.title}</div>
+                        <div className="pt-2 font-mono text-[14px] md:text-[15px]">{knowAboutItem2.description}</div>
+                    </div>
+                    <div key={knowAboutItem3.id} className="flex-1 flex-col h-[200px]">
+                        <div className="text-[18px] md:text-[20px] underline decoration-dashed underline-offset-4">{knowAboutItem3.title}</div>
+                        <div className="pt-2 font-mono text-[14px] md:text-[15px]">{knowAboutItem3.description}</div>
+                    </div>
+                    <div key={knowAboutItem4.id} className="flex-1 flex-col h-[200px]">
+                        <div className="text-[18px] md:text-[20px] underline decoration-dashed underline-offset-4">{knowAboutItem4.title}</div>
+                        <div className="pt-2 font-mono text-[14px] md:text-[15px]">{knowAboutItem4.description}</div>
+                    </div>
                 </div>
             </div>
         </div>
